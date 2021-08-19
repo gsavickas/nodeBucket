@@ -1,5 +1,15 @@
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   18 Aug 2021
+; Modified By:
+; Description: App construction
+;===========================================
+*/
+
 /**
- * Require statements
+ * Requirement statement and imports
  */
 const express = require('express');
 const http = require('http');
@@ -25,7 +35,7 @@ app.use(express.static(path.join(__dirname, '../dist/nodebucket')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 
 /**
- * Variables
+ * Variables w/ optional default port and localhost 3000
  */
 const port = process.env.PORT || 3000; // server port
 

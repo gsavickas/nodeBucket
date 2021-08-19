@@ -1,5 +1,12 @@
-// Attribution
-// Grayton Savickas
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   18 Aug 2021
+; Modified By:
+; Description: Employee api with error handling
+;===========================================
+*/
 
 const express = require('express');
 const Employee = require('../models/employee')
