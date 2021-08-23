@@ -1,3 +1,13 @@
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   18 Aug 2021
+; Modified By:
+; Description: App routing
+;===========================================
+*/
+
 import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { NgModule } from '@angular/core';

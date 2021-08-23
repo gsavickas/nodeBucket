@@ -4,7 +4,7 @@
 ; Author: Grayton Savickas
 ; Date:   18 Aug 2021
 ; Modified By:
-; Description: 
+; Description: This will prevent users from accessing the Homepage unless they sign in.\
 ;===========================================
 */
 

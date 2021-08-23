@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! G:\Coding\BellevueCode\Spring 2021\nodebucket\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /Users/graytonsavickas/Documents/Code Projects/School-Code/nodebucket/src/polyfills.ts */"hN/g");
 
 
 /***/ }),

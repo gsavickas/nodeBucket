@@ -1,4 +1,12 @@
-// add attribution
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   18 Aug 2021
+; Modified By:
+; Description: 
+;===========================================
+*/
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +27,7 @@ export class SigninComponent implements OnInit {
   constructor(private router: Router, private cookieService: CookieService, private fb: FormBuilder, private http: HttpClient) { }
 
   /**
-   * Add code comments here
+   * This logic ensures that if anything other than integers 0-9 are entered in the Employee Id field the form label will turn red
    */
   ngOnInit(): void 
   {
@@ -29,7 +37,8 @@ export class SigninComponent implements OnInit {
   }
 
   /**
-   * Add code comments here
+   * The login() function tests the provide employee id to see if it matches an authorized user.
+   * It will also show an error message if they do not match
    */
   login(): void{
     const empId = this.form.controls['empId'].value;
@@ -37,11 +46,11 @@ export class SigninComponent implements OnInit {
     // using /api... is to denote a server route
     this.http.get('/api/employees/' + empId).subscribe(res =>{
       if (res){
-        this.cookieService.set('session_user', empId, 1); // add code comments here
+        this.cookieService.set('session_user', empId, 1); // Routes user to home page
         this.router.navigate(['/']);
       }
       else{
-        this.error = 'This employeeID you entered is not valid, please try again.'
+        this.error = 'This employeeID you entered is not valid, please try again.'// Displays this error if there was no match
       }
     })
   }

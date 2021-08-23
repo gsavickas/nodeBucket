@@ -1,3 +1,13 @@
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   18 Aug 2021
+; Modified By:
+; Description: App module
+;===========================================
+*/
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
