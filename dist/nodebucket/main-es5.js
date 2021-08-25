@@ -803,7 +803,7 @@
 
             var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
 
-            return ctx_r1.signOut;
+            return ctx_r1.signOut();
           });
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Sign-Out");
@@ -833,6 +833,7 @@
           value: function signOut() {
             this.cookieService.deleteAll();
             this.router.navigate(['/session/signin']);
+            console.log("signOut() function worked");
           }
         }]);
 
