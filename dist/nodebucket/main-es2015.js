@@ -91,10 +91,10 @@ class HomeComponent {
             console.log('--Server error--');
             console.log(err);
         }, () => {
-            console.log('--On Complete of the findAllTasks service call--');
+            console.log('--onComplete of the findAllTasks service call--');
             this.todo = this.employee.todo;
             this.done = this.employee.done;
-            console.log('--Todo');
+            console.log('--Todo tasks--');
             console.log(this.todo);
             console.log('--Done tasks--');
             console.log(this.done);
@@ -680,7 +680,7 @@ class TaskService {
     }
     // add tasks to user
     createTask(empId, task) {
-        return this.http.post('/api/employee/' + empId + '/tasks', {
+        return this.http.post('/api/employees/' + empId + '/tasks', {
             text: task
         });
     }

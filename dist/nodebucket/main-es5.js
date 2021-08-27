@@ -169,10 +169,10 @@
             console.log('--Server error--');
             console.log(err);
           }, function () {
-            console.log('--On Complete of the findAllTasks service call--');
+            console.log('--onComplete of the findAllTasks service call--');
             _this.todo = _this.employee.todo;
             _this.done = _this.employee.done;
-            console.log('--Todo');
+            console.log('--Todo tasks--');
             console.log(_this.todo);
             console.log('--Done tasks--');
             console.log(_this.done);
@@ -1260,7 +1260,7 @@
         }, {
           key: "createTask",
           value: function createTask(empId, task) {
-            return this.http.post('/api/employee/' + empId + '/tasks', {
+            return this.http.post('/api/employees/' + empId + '/tasks', {
               text: task
             });
           }
