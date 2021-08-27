@@ -46,11 +46,11 @@ export class HomeComponent implements OnInit {
       console.log('--Server error--');
       console.log(err);
     }, () => {
-      console.log('--On Complete of the findAllTasks service call--')
+      console.log('--onComplete of the findAllTasks service call--')
       this.todo = this.employee.todo;
       this.done = this.employee.done;
 
-      console.log('--Todo');
+      console.log('--Todo tasks--');
       console.log(this.todo);
 
       console.log('--Done tasks--');
@@ -69,7 +69,8 @@ export class HomeComponent implements OnInit {
     })
   
     dialogRef.afterClosed().subscribe(data => {
-      if (data){
+      if (data)
+      {
         this.taskService.createTask(this.empId, data.text).subscribe(res=>{
           this.employee = res;
         }, err => {
