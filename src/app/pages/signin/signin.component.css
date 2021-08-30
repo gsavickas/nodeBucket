@@ -9,9 +9,20 @@
 */
 
 .signin-container{
-    width: 30%;
+    width: 35%;
     margin: 15% auto;
   }
+
+.signin-title{
+  text-align: center;
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+.signin-subtitle{
+  text-align: center;
+  font-weight: lighter;
+}
 
   .msg-error{
     margin: 10px 0;

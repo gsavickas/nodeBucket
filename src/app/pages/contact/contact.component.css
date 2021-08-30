@@ -1,0 +1,37 @@
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   18 Aug 2021
+; Modified By:
+; Description: 
+;===========================================
+*/
+html, body {
+    height: 100%;
+   }
+   body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+   }
+  .attribution-link{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .attribution-link:hover{
+     text-decoration: underline;
+  }
+  
+  .card-title-icon{
+     text-align: center;
+  }
+  
+  .card-title-icon .mat-icon {
+    font-size: 78px;
+  } 
+  
+  .align-center {
+    text-align: center;
+  } 
+  
