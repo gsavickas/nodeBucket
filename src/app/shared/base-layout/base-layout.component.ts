@@ -22,6 +22,7 @@ export class BaseLayoutComponent implements OnInit {
 
   year: number = Date.now();
   isLoggedIn: boolean;
+  name: string;
 
 
   constructor(private cookieService: CookieService, private router: Router) {
@@ -29,6 +30,8 @@ export class BaseLayoutComponent implements OnInit {
     // This is short hand for an if else statement on a boolean
     this.isLoggedIn = this.cookieService.get('session_user') ? true: false;
 
+    this.name = sessionStorage.getItem('name');
+    console.log('Signed in as user ' + this.name);
    }
 
   ngOnInit(): void {
@@ -37,7 +40,6 @@ export class BaseLayoutComponent implements OnInit {
   signOut(){
     this.cookieService.deleteAll();
     this.router.navigate(['/session/signin']);
-    console.log("signOut() function worked")
   };
 
 }

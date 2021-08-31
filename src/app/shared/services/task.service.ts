@@ -1,4 +1,14 @@
-// attribution
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   28 Aug 2021
+; Modified By:
+; Description: 
+;===========================================
+*/
+
+// Service that can find a task by id or create a task.
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

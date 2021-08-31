@@ -46,6 +46,10 @@ export class SigninComponent implements OnInit {
     // using /api... is to denote a server route
     this.http.get('/api/employees/' + empId).subscribe(res =>{
       if (res){
+
+        // Uses Session storage to store the first and last name in variables
+        sessionStorage.setItem('name',`${res['firstName']} ${res['lastName']}`);
+
         this.cookieService.set('session_user', empId, 1); // Routes user to home page
         this.router.navigate(['/']);
       }

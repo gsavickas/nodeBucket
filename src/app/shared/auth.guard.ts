@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
   }
 
 /**
- * Code comments here
+ * Adds sessions via the Cookie service
  * @param route 
  * @param state 
  * @returns 
@@ -35,13 +35,13 @@ export class AuthGuard implements CanActivate {
     const sessionUser = this.cookieService.get('session_user');
 
     /**
-     * Code comments go here
+     * If there is a session user then the route can be activated
      */
     if (sessionUser)
     {
-      return true; // code comments here
+      return true; 
     }
-    else
+    else // If not then re-route them to the sign-in page
     {
       this.router.navigate(['/session/signin']);
       return false;

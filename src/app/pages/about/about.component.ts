@@ -2,20 +2,20 @@
 ============================================
 ; Title:  nodebucket
 ; Author: Grayton Savickas
-; Date:   28 Aug 2021
+; Date:   31 Aug 2021
 ; Modified By:
-; Description: 
+; Description: Logic for About Us page
 ;===========================================
 */
 
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css']
 })
-export class ContactComponent implements OnInit {
+export class AboutComponent implements OnInit {
 
   constructor() { }
 
