@@ -1,0 +1,19 @@
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   30 Aug 2021
+; Modified By:
+; Description: 
+;===========================================
+*/
+
+.img-attrib {
+    /* position: absolute; */
+    bottom: 0;
+    right: 0;
+    margin: 1 2em .5em 2;
+    padding: .25em;
+    color: white;
+    background-color: rgba(0,0,0,.2)
+  }
