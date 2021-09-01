@@ -34,7 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatDividerModule } from '@angular/material/divider';
 import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { AboutComponent } from '..pages/about/about.component'
+import { AboutComponent } from '../app/pages/about/about.component'
 
 @NgModule({
   declarations: [
