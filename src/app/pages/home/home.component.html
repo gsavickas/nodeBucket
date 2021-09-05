@@ -55,11 +55,22 @@
                           </div>
                         </div>
                       </mat-card-content>
+
+                      <!-- TODO Add drop down for edit or delete item -->
+                    <!-- <div *ngIf="itemActions"> -->
                       <div fxFlex fxLayoutAlign="end">
+                        <button mat-icon-button (click)="openUpdateTaskDialog()">
+                          <mat-icon color="accent">edit</mat-icon>
+                        </button>
                         <button mat-icon-button (click)="deleteTask(item._id)">
                           <mat-icon color="accent">delete</mat-icon>
                         </button>
                       </div>
+
+
+                    <!-- </div> -->
+
+                      
                     </mat-card>
                   </div>
                 </div>

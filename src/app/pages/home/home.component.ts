@@ -15,6 +15,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { TaskService } from 'src/app/shared/services/task.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskDialogComponent } from 'src/app/shared/create-task-dialog/create-task-dialog.component';
+import { UpdateTaskDialogComponent } from 'src/app/shared/update-task-dialog/update-task-dialog.component';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
 
 @Component({
@@ -86,6 +87,31 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+  // Dialog to edit todo trigged here. For now it updates all todos.
+  openUpdateTaskDialog() {
+    const dialogRef = this.dialog.open(UpdateTaskDialogComponent,{
+      disableClose: true
+    })
+  
+    dialogRef.afterClosed().subscribe(data => {
+      if (data)
+      {
+        this.taskService.updateTask(this.empId, data.text, data.text).subscribe(res=>{
+          this.employee = res;
+        }, err => {
+          console.log('--onError of the updateTask service call--');
+          console.log(err);
+  
+        }, ()=> {
+          this.todo = this.employee.todo;
+          this.done = this.employee.done;
+        }
+        )
+      }
+    })
+  }
+
   drop(event: CdkDragDrop<any[]>){
       if (event.previousContainer === event.container){
         moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -105,7 +131,7 @@ export class HomeComponent implements OnInit {
       }
   }
 
-  // This function deletes a task based on empId and taskId. Uses a confirmation pop-up of a better UX.
+  // This function deletes a task based on empId and taskId. This function is provided by the task service. Uses a confirmation pop-up of a better UX.
   deleteTask(taskId: string): void{
     if (confirm('Are you sure you want to delete this task?')){
       if (taskId){
@@ -135,6 +161,7 @@ export class HomeComponent implements OnInit {
     () => {
       this.todo = this.employee.todo;
       this.done = this.employee.done;
+      console.log('This '+ this.employee.todo + this.employee.done +' have been updated.')
     })
   }
 }

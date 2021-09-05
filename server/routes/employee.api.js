@@ -152,16 +152,6 @@ router.put('/:empId/tasks', async(req, res) => {
                 })
 
                 // This code updates the employee todo and done array values in MongoDB to the ones provided in the request
-                employee.save(function(err, updatedEmployee){
-                    if(err)
-                    {
-                        console.log(err);
-
-                        employee.set({
-                            todo: req.body.todo,
-                            done: req.body.done
-                        })
-
                         employee.save(function(err, updateEmployee)
                         {
                             if(err)
@@ -173,13 +163,13 @@ router.put('/:empId/tasks', async(req, res) => {
                             else
                             {
                                 console.log(updateEmployee);
-                                const updatedTaskSuccessResponse = new BaseResponse('200', 'Update successful', updatedEmployee);
+                                const updatedTaskSuccessResponse = new BaseResponse('200', 'Update successful', updateEmployee);
                                 res.status(200).send(updatedTaskSuccessResponse.toObject());
                             }
                         })
-                    }
-                })
+                 
             }
+            console.log('do we make it this far?');
         })
     }
     catch (e)

@@ -157,7 +157,7 @@ class HomeComponent {
             this.updateTaskList(this.empId, this.todo, this.done);
         }
     }
-    // This function deletes a task based on empId and taskId. Uses a confirmation pop-up of a better UX.
+    // This function deletes a task based on empId and taskId. This function is provided by the task service. Uses a confirmation pop-up of a better UX.
     deleteTask(taskId) {
         if (confirm('Are you sure you want to delete this task?')) {
             if (taskId) {
@@ -182,6 +182,7 @@ class HomeComponent {
         }, () => {
             this.todo = this.employee.todo;
             this.done = this.employee.done;
+            console.log('This ' + this.employee.todo + this.employee.done + ' have been updated.');
         });
     }
 }

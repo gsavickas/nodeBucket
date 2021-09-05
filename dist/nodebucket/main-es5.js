@@ -285,7 +285,7 @@
               console.log('Moved task item into the other container.');
               this.updateTaskList(this.empId, this.todo, this.done);
             }
-          } // This function deletes a task based on empId and taskId. Uses a confirmation pop-up of a better UX.
+          } // This function deletes a task based on empId and taskId. This function is provided by the task service. Uses a confirmation pop-up of a better UX.
 
         }, {
           key: "deleteTask",
@@ -319,6 +319,7 @@
             }, function () {
               _this4.todo = _this4.employee.todo;
               _this4.done = _this4.employee.done;
+              console.log('This ' + _this4.employee.todo + _this4.employee.done + ' have been updated.');
             });
           }
         }]);
