@@ -97,17 +97,16 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(data => {
       if (data)
       {
-        this.taskService.updateTask(this.empId, data.text, data.text).subscribe(res=>{
-          this.employee = res;
+        this.taskService.updateTask(this.empId, this.todo, this.done).subscribe(res => {
+          this.employee = res.data;
         }, err => {
-          console.log('--onError of the updateTask service call--');
           console.log(err);
-  
-        }, ()=> {
+        },
+        () => {
           this.todo = this.employee.todo;
           this.done = this.employee.done;
-        }
-        )
+          console.log('This '+ this.employee.todo + this.employee.done +' have been updated.')
+        })
       }
     })
   }
