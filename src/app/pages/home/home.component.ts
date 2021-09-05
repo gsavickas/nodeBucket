@@ -15,6 +15,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { TaskService } from 'src/app/shared/services/task.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskDialogComponent } from 'src/app/shared/create-task-dialog/create-task-dialog.component';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
 
 @Component({
   selector: 'app-home',
@@ -85,7 +86,55 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+  drop(event: CdkDragDrop<any[]>){
+      if (event.previousContainer === event.container){
+        moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
 
-  
+        console.log('Reordered the list of tasked items');
 
+        this.updateTaskList(this.empId, this.todo, this.done);
+      }
+      else
+      {
+        // transferring items in the two arrays
+        transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+
+        console.log('Moved task item into the other container.');
+
+        this.updateTaskList(this.empId, this.todo, this.done);
+      }
+  }
+
+  // This function deletes a task based on empId and taskId. Uses a confirmation pop-up of a better UX.
+  deleteTask(taskId: string): void{
+    if (confirm('Are you sure you want to delete this task?')){
+      if (taskId){
+        console.log('Task item: ${taskId} was deleted')
+
+        this.taskService.deleteTask(this.empId, taskId).subscribe(res => {
+          this.employee = res.data;
+        }, err => {
+          console.log(err);
+        }, () => {
+          this.todo = this.employee.todo;
+          this.done = this.employee.done;
+        }
+
+        )
+      }
+    }
+  }
+
+  // function that provides calls on the updateTask from taskService that calls the API update method
+  private updateTaskList(empId: number, todo: Item[], done: Item[]): void{
+    this.taskService.updateTask(this.empId, this.todo, this.done).subscribe(res => {
+      this.employee = res.data;
+    }, err => {
+      console.log(err);
+    },
+    () => {
+      this.todo = this.employee.todo;
+      this.done = this.employee.done;
+    })
+  }
 }

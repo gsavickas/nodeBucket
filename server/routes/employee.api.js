@@ -129,6 +129,9 @@ router.post('/:empId/tasks', async(req, res) => {
 // Update task: 
 
 router.put('/:empId/tasks', async(req, res) => {
+    //Tested updates employees at http://localhost:3000/api/employees/1007/tasks
+
+    console.log('Made it to the updateTaskAPI');
     try
     {
         Employee.findOne({'empId': req.params.empId}, function(err, employee){
@@ -140,12 +143,15 @@ router.put('/:empId/tasks', async(req, res) => {
             }// Continue here TODO
             else
             {
+                // This code sets the employee values to the response in the request body
                 console.log(employee);
 
                 employee.set({
                     todo: req.body.todo,
                     done: req.body.done
                 })
+
+                // This code updates the employee todo and done array values in MongoDB to the ones provided in the request
                 employee.save(function(err, updatedEmployee){
                     if(err)
                     {
@@ -164,6 +170,12 @@ router.put('/:empId/tasks', async(req, res) => {
                                 const updateTaskMongoOnSaveErrorResponse = new BaseResponse('501', 'Mongo server error', err);
                                 res.status(501).send(updateTaskMongoOnSaveErrorResponse.toObject())
                             }
+                            else
+                            {
+                                console.log(updateEmployee);
+                                const updatedTaskSuccessResponse = new BaseResponse('200', 'Update successful', updatedEmployee);
+                                res.status(200).send(updatedTaskSuccessResponse.toObject());
+                            }
                         })
                     }
                 })
@@ -178,9 +190,11 @@ router.put('/:empId/tasks', async(req, res) => {
     }
 })
 
+// Delete one todo or done task from the employee record
 router.delete('/:empId/tasks/:taskId', async(req, res) => {
     try
     {
+        // Find an employee by provided id in the request
         Employee.findOne({'empId': req.params.empId}, function(err, employee){
             if (err)
             {
@@ -192,6 +206,7 @@ router.delete('/:empId/tasks/:taskId', async(req, res) => {
             }
             else
             {
+                // find all todo and done items and take their taskId
                 console.log(employee);
 
                 const todoItem = employee.todo.find(item => item._id.toString() == req.params.taskId);
@@ -200,15 +215,15 @@ router.delete('/:empId/tasks/:taskId', async(req, res) => {
                 if (todoItem)
                 {
                     employee.todo.id(todoItem._id).remove();
-                    employee.save(function(err, updateTodoTask){
+                    employee.save(function(err, updatedTodoItemEmployee){
                         if (err){
                             console.log(err);
                             const deleteTodoItemMongoErrorResponse = new BaseResponse('501', 'Mongo server error', err);
                             res.status(501).send(deleteTodoItemMongoErrorResponse.toObject());
                         }
                         else{
-                            console.log(updateTodoItemMongoErrorResponse);
-                            const deleteTodoItemMongoErrorResponse = new BaseResponse('200', 'Item removed from the todo array', updateTodoItemEmployee);
+                            console.log(updatedTodoItemEmployee);
+                            const deleteTodoItemMongoErrorResponse = new BaseResponse('200', 'Item removed from the todo array', updatedTodoItemEmployee);
                             res.status(200).send(deleteTodoItemMongoErrorResponse.toObject());
                         }
                     })
