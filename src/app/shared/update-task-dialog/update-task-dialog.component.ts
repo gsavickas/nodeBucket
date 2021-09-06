@@ -29,7 +29,7 @@ export class UpdateTaskDialogComponent implements OnInit {
       text: [null, Validators.compose([Validators.required])]
     })
   }
-  // Creates a task item with value taken from the taskForm
+  // Updates a task item with value taken from the taskFormUpdate
   updateTask(){
   this.dialogRef.close(this.taskFormUpdate.value);
   }
