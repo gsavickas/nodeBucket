@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  nodebucket
+; Author: Grayton Savickas
+; Date:   5 Sep 2021
+; Modified By:
+; Description: Task elements
+;===========================================
+*/ 
 import { Component, OnInit } from '@angular/core';
 
 @Component({
