@@ -379,7 +379,7 @@
     /***/
     1: function _(module, exports, __webpack_require__) {
       __webpack_require__(
-      /*! G:\Coding\BellevueCode\Spring 2021\nodebucket\node_modules\@angular-devkit\build-angular\src\webpack\es5-polyfills.js */
+      /*! /Users/graytonsavickas/Documents/Code Projects/School-Code/nodebucket/node_modules/@angular-devkit/build-angular/src/webpack/es5-polyfills.js */
       "voQr");
 
       __webpack_require__(
@@ -387,7 +387,7 @@
       "R0gw");
 
       module.exports = __webpack_require__(
-      /*! G:\Coding\BellevueCode\Spring 2021\nodebucket\src\polyfills.ts */
+      /*! /Users/graytonsavickas/Documents/Code Projects/School-Code/nodebucket/src/polyfills.ts */
       "hN/g");
       /***/
     },
